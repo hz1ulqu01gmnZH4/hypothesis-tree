@@ -29,15 +29,17 @@ mkdir -p "$EVAL_DIR"
 
 Parse the input. If from a hypothesis-tree REPORT, extract hypotheses with status SUPPORTED or UNCERTAIN (most worth evaluating). Present them and ask user which to evaluate.
 
-## Phase 1.5: Naive Baseline
+## Phase 1.5: Naive Baseline (optional, default: on)
 
-Before structured evaluation, generate a quick baseline for comparison:
+Ask the user: **"Include naive baseline comparison? (recommended, adds ~30s)"** — skip if they decline.
+
+Generate a quick single-prompt baseline:
 
 ```
 Single prompt: "Evaluate this hypothesis in 200 words: [HYPOTHESIS]"
 ```
 
-Save as `$EVAL_DIR/baseline.md`. This addresses the null hypothesis ("any structured response with more tokens beats less tokens") — in Phase 6, explicitly note what the structured evaluation surfaced that the baseline missed.
+Save as `$EVAL_DIR/baseline.md`. In Phase 6, explicitly note what the structured evaluation surfaced that the baseline missed. If skipped, omit the Baseline Comparison section from the output.
 
 ## Phase 2: Multi-Dimensional Scoring
 
