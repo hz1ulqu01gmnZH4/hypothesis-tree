@@ -103,6 +103,7 @@ After all agents complete:
 **Ask user**: Which branches to explore deeper? (or auto-select UNCERTAIN + NOVEL nodes)
 
 ### Recursive descent
+- **Minimum depth: 2** — always explore at least one level of sub-hypotheses. A single-level tree is just a list, not a tree. Auto-select the 2-3 most promising UNCERTAIN or NOVEL branches from depth 1 without asking.
 - Spawn new Agent workers for selected branches (H[n].x becomes parent)
 - Pass cross-link context and critic feedback to workers (deep mode)
 - Each level: H1 → H1.2 → H1.2.3 → ...
